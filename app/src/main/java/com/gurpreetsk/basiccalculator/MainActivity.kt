@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
         // Get view handles
         val addButton = findViewById<Button>(R.id.addButton)
         val subtractButton = findViewById<Button>(R.id.subtractButton)
+        val multiplyButton=findViewById<Button>(R.id.multiplyButton)
         val resultTextView = findViewById<TextView>(R.id.resultTextView)
-
         val firstEditText = findViewById<EditText>(R.id.firstInputEditText)
         val secondEditText = findViewById<EditText>(R.id.secondInputEditText)
 
@@ -35,6 +35,28 @@ class MainActivity : AppCompatActivity() {
 
         addButton.setOnClickListener {
             addTwoNumbers(firstEditText, secondEditText, resultTextView)
+        }
+
+        multiplyButton(multiplyButton, firstEditText, secondEditText, resultTextView)
+    }
+
+    private fun multiplyButton(
+        multiplyButton: Button,
+        firstEditText: EditText,
+        secondEditText: EditText,
+        resultTextView: TextView
+    ) {
+        multiplyButton.setOnClickListener {
+            val firstnumber = firstEditText.text.toString()
+            val secondnumber = secondEditText.text.toString()
+            if (firstnumber == "") {
+                Toast.makeText(this, "please enter first number", Toast.LENGTH_SHORT).show()
+            } else if (secondnumber == "") {
+                Toast.makeText(this, "please enter second number", Toast.LENGTH_SHORT).show()
+            } else {
+                val result = firstnumber.toInt() * secondnumber.toInt()
+                resultTextView.text = result.toString()
+            }
         }
     }
 
