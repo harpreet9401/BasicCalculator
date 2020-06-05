@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,26 +22,57 @@ class MainActivity : AppCompatActivity() {
 
         // Get view handles
         val addButton = findViewById<Button>(R.id.addButton)
+        val subtractButton = findViewById<Button>(R.id.subtractButton)
         val resultTextView = findViewById<TextView>(R.id.resultTextView)
+
         val firstEditText = findViewById<EditText>(R.id.firstInputEditText)
         val secondEditText = findViewById<EditText>(R.id.secondInputEditText)
 
         // Listen to clicks
+        subtractButton.setOnClickListener {
+            subtractButton(firstEditText, secondEditText, resultTextView)
+        }
+
         addButton.setOnClickListener {
-            val firstNumber = firstEditText.text.toString()
-            val secondNumber = secondEditText.text.toString()
+            addTwoNumbers(firstEditText, secondEditText, resultTextView)
+        }
+    }
 
-            if (firstNumber == "") {
-                resultTextView.text = "Please enter first input"
-            }
-            else if (secondNumber == "") {
-                resultTextView.text = "Please enter second input"
-            }
-            else {
-                val result = firstNumber.toInt() + secondNumber.toInt()
+    private fun subtractButton(
+        firstEditText: EditText,
+        secondEditText: EditText,
+        resultTextView: TextView
+    ) {
+        val firstnumber = firstEditText.text.toString()
+        val secondnumber = secondEditText.text.toString()
 
-                resultTextView.text = result.toString()
-            }
+        if (firstnumber == "") {
+            Toast.makeText(this, "please enter first number", Toast.LENGTH_SHORT).show()
+        } else if (secondnumber == "") {
+
+            Toast.makeText(this, "please enter second number", Toast.LENGTH_SHORT).show()
+        } else {
+            val result = firstnumber.toInt() - secondnumber.toInt()
+            resultTextView.text = result.toString()
+        }
+    }
+
+    private fun addTwoNumbers(
+        firstEditText: EditText,
+        secondEditText: EditText,
+        resultTextView: TextView
+    ) {
+        val firstNumber = firstEditText.text.toString()
+        val secondNumber = secondEditText.text.toString()
+
+        if (firstNumber == "") {
+            resultTextView.text = "Please enter first input"
+        } else if (secondNumber == "") {
+            resultTextView.text = "Please enter second input"
+        } else {
+            val result = firstNumber.toInt() + secondNumber.toInt()
+
+            resultTextView.text = result.toString()
         }
     }
 }

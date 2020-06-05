@@ -25,31 +25,38 @@
         android:layout_margin="16dp"
         android:hint="Second input"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstInputEditText"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstInputEditText" />
 
     <TextView
         android:id="@+id/resultTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:textSize="24dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/addButton"
-        app:layout_constraintStart_toStartOf="@+id/addButton"
-        app:layout_constraintEnd_toEndOf="@+id/addButton"
-        tools:text="Harpreet Kaur"
-        />
+        app:layout_constraintEnd_toEndOf="@+id/subtractButton"
+        app:layout_constraintStart_toStartOf="@+id/subtractButton"
+        app:layout_constraintTop_toBottomOf="@+id/subtractButton"
+        tools:text="Harpreet Kaur" />
 
     <Button
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondInputEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondInputEditText" />
+
+    <Button
+        android:id="@+id/subtractButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="@+id/addButton"
+        app:layout_constraintStart_toStartOf="@+id/addButton"
+        app:layout_constraintTop_toBottomOf="@+id/addButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
