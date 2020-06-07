@@ -30,31 +30,37 @@ class MainActivity : AppCompatActivity() {
         val secondEditText = findViewById<EditText>(R.id.secondInputEditText)
 
         // Listen to clicks
-        subtractButton.setOnClickListener {
-            subtractButton(firstEditText, secondEditText, resultTextView)
-        }
-
-        divisionButton.setOnClickListener {
-
-            val firstNumber = firstEditText.text.toString()
-            val secondNumber = secondEditText.text.toString()
-            if (firstNumber == "") {
-                Toast.makeText(this, "please enter first number", Toast.LENGTH_SHORT).show()
-            } else if (secondNumber == "") {
-                Toast.makeText(this, "please enter second number ", Toast.LENGTH_SHORT).show()
-            } else if(secondNumber=="0"){
-                Toast.makeText(this, "infinity... enter number other than 0", Toast.LENGTH_SHORT).show() }
-            else
-            {val result = firstNumber.toFloat() / secondNumber.toFloat()
-                resultTextView.text= result.toString()
-            }
-        }
-
         addButton.setOnClickListener {
             addTwoNumbers(firstEditText, secondEditText, resultTextView)
         }
+        subtractButton.setOnClickListener {
+            subtractButton(firstEditText, secondEditText, resultTextView)
+        }
         multiplyButton.setOnClickListener {
             multiplyButton(multiplyButton, firstEditText, secondEditText, resultTextView)
+        }
+        divisionButton.setOnClickListener {
+            divideTwoNumbers(firstEditText, secondEditText, resultTextView)
+        }
+    }
+
+    private fun divideTwoNumbers(
+        firstEditText: EditText,
+        secondEditText: EditText,
+        resultTextView: TextView
+    ) {
+        val firstNumber = firstEditText.text.toString()
+        val secondNumber = secondEditText.text.toString()
+        if (firstNumber == "") {
+            Toast.makeText(this, "please enter first number", Toast.LENGTH_SHORT).show()
+        } else if (secondNumber == "") {
+            Toast.makeText(this, "please enter second number ", Toast.LENGTH_SHORT).show()
+        } else if (secondNumber == "0") {
+            Toast.makeText(this, "infinity... enter number other than 0", Toast.LENGTH_SHORT)
+                .show()
+        } else {
+            val result = firstNumber.toFloat() / secondNumber.toFloat()
+            resultTextView.text = result.toString()
         }
     }
 
