@@ -19,6 +19,7 @@
         />
 
     <EditText
+        android:maxLength="10"
         android:id="@+id/secondInputEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,12 +34,13 @@
         android:id="@+id/resultTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="4dp"
         android:textSize="24dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/multiplyButton"
-        app:layout_constraintStart_toStartOf="@+id/multiplyButton"
-        app:layout_constraintTop_toBottomOf="@+id/multiplyButton"
+        app:layout_constraintEnd_toEndOf="@+id/divisionButton"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="@+id/divisionButton"
+        app:layout_constraintTop_toBottomOf="@+id/divisionButton"
         tools:text="Harpreet Kaur" />
 
     <Button
@@ -64,9 +66,21 @@
         android:id="@+id/multiplyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="12dp"
         android:text="*"
         app:layout_constraintEnd_toEndOf="@+id/subtractButton"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/subtractButton"
         app:layout_constraintTop_toBottomOf="@+id/subtractButton" />
+
+    <Button
+        android:id="@+id/divisionButton"
+        android:layout_width="86dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:text="/"
+        app:layout_constraintEnd_toEndOf="@+id/multiplyButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/multiplyButton"
+        app:layout_constraintTop_toBottomOf="@+id/multiplyButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

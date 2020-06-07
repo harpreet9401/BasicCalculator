@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         // Get view handles
         val addButton = findViewById<Button>(R.id.addButton)
         val subtractButton = findViewById<Button>(R.id.subtractButton)
-        val multiplyButton=findViewById<Button>(R.id.multiplyButton)
+        val multiplyButton = findViewById<Button>(R.id.multiplyButton)
+        val divisionButton = findViewById<Button>(R.id.divisionButton)
         val resultTextView = findViewById<TextView>(R.id.resultTextView)
         val firstEditText = findViewById<EditText>(R.id.firstInputEditText)
         val secondEditText = findViewById<EditText>(R.id.secondInputEditText)
@@ -33,11 +34,28 @@ class MainActivity : AppCompatActivity() {
             subtractButton(firstEditText, secondEditText, resultTextView)
         }
 
+        divisionButton.setOnClickListener {
+
+            val firstNumber = firstEditText.text.toString()
+            val secondNumber = secondEditText.text.toString()
+            if (firstNumber == "") {
+                Toast.makeText(this, "please enter first number", Toast.LENGTH_SHORT).show()
+            } else if (secondNumber == "") {
+                Toast.makeText(this, "please enter second number ", Toast.LENGTH_SHORT).show()
+            } else if(secondNumber=="0"){
+                Toast.makeText(this, "infinity... enter number other than 0", Toast.LENGTH_SHORT).show() }
+            else
+            {val result = firstNumber.toFloat() / secondNumber.toFloat()
+                resultTextView.text= result.toString()
+            }
+        }
+
         addButton.setOnClickListener {
             addTwoNumbers(firstEditText, secondEditText, resultTextView)
         }
-
-        multiplyButton(multiplyButton, firstEditText, secondEditText, resultTextView)
+        multiplyButton.setOnClickListener {
+            multiplyButton(multiplyButton, firstEditText, secondEditText, resultTextView)
+        }
     }
 
     private fun multiplyButton(
